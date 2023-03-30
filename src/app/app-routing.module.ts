@@ -18,65 +18,25 @@ import {MilestoneResolver} from './resolvers/milestone.resolver';
 import {MainComponent} from './features/common/main/main.component';
 
 const routes: Routes = [
-  {
-    path: Route.EMPTY,
-    component: MainComponent,
-    children: [
       {
         path: Route.EMPTY,
-        component: HomeComponent,
-      },
-      {
-        path: Route.ABOUT,
-        component: AboutComponent,
-      },
-      {
-        path: Route.CONTACT,
-        component: ContactComponent,
-      },
-      {
-        path: Route.VARIABLE + Route.HABIT_ID,
-        resolve: {
-          [ResolverProperty.HABIT_ID]: HabitIdResolver
-        },
+        component: MainComponent,
         children: [
-          {
-            path: Route.EMPTY,
-            component: PreviewComponent,
-            resolve: {
-              [ResolverProperty.HABIT]: HabitResolver
+            {
+              path: Route.EMPTY,
+              component: HomeComponent,
             },
-          },
-          {
-            path: Route.LOGS,
-            component: LogsComponent,
-            resolve: {
-              [ResolverProperty.LOGS]: LogsResolver,
+            {
+              path: Route.PROFILE_PAGE,
+              component: AboutComponent,
             },
-          },
-          {
-            path: Route.MILESTONES,
-            component: MilestonesComponent,
-            resolve: {
-              [ResolverProperty.MILESTONES]: MilestonesResolver,
+            {
+              path: Route.AUTHENTICATION,
+              component: ContactComponent,
             },
-          },
-          {
-            path: Route.MILESTONES + '/' + Route.ADD,
-            component: MilestonesAddComponent,
-          },
-          {
-            path: Route.MILESTONES + '/' + Route.VARIABLE + Route.MILESTONE_ID,
-            component: MilestonesEditComponent,
-            resolve: {
-              [ResolverProperty.MILESTONE]: MilestoneResolver,
-            }
-          },
         ],
       },
-    ],
-  },
-];
+    ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
