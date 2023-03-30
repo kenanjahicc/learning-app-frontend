@@ -1,0 +1,26 @@
+<h1>{{habit.title}}</h1>
+
+<div class="action-buttons">
+  <button mat-stroked-button type="button"
+          (click)="navigateToLogs()">Logs
+  </button>
+  <button mat-stroked-button type="button"
+          (click)="navigateToMilestones()">Milestones
+  </button>
+</div>
+
+<h2>{{formattedTime}}</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="container">
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <mat-label>Reason to break your habit</mat-label>
+      <input matInput [formControlName]="'reason'">
+    </mat-form-field>
+
+    <button type="submit"
+            mat-stroked-button
+            color="warn">Break the habit
+    </button>
+  </div>
+</form>
