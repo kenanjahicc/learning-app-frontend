@@ -37,3 +37,20 @@ ul a:hover{
     align-items: center;
     cursor: default;
 }
+div.log{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px 0;
+    background-image: linear-gradient(to right, rgba(103, 242, 244, 0),rgba(103, 242, 244, 0),rgba(103, 242, 244, 0),rgba(103, 241, 244, 0.137))
+}
+div.log span{
+    padding: 0 20px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
