@@ -13,7 +13,6 @@ import { StudentProfilePageComponent } from './student-profile-page/student-prof
 import { ProfessorProfilePageComponent } from './professor-profile-page/professor-profile-page.component';
 import { WrongRouteComponent } from './wrong-route/wrong-route.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { ProfessorPageComponent } from './professor-profile-page/professor-page.component';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from "@angular/forms";
 
@@ -22,7 +21,6 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     HomeComponent,
     FeedbackComponent,
-    ProfessorPageComponent,
     NavigationComponent,
     FooterComponent,
     ProfilePageComponent,
@@ -32,14 +30,10 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule,
+    FormsModule,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatInputModule,
-        FormsModule,
-    ],
   providers: [],
   bootstrap: [AppComponent]
 })
