@@ -1,0 +1,18 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+section span.notfound{
+    font-size: 15rem;
+    color:rgba(103, 242, 244, 0.522);
+    font-weight: 900;
+}
+section span.text{
+    font-weight: lighter;
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(103, 242, 244, 0.522);
+    padding: 5px;
+}

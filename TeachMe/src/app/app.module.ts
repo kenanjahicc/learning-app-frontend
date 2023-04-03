@@ -10,16 +10,18 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { StudentProfilePageComponent } from './student-profile-page/student-profile-page.component';
 import { ProfessorProfilePageComponent } from './professor-profile-page/professor-profile-page.component';
+import { WrongRouteComponent } from './wrong-route/wrong-route.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
     ProfilePageComponent,
     StudentProfilePageComponent,
-    ProfessorProfilePageComponent
+    ProfessorProfilePageComponent,
+    WrongRouteComponent
   ],
   imports: [
     BrowserModule,
