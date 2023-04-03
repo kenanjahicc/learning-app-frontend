@@ -1,3 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-/*ovo ostaviti da material bude sa stylom*/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+body{
+    margin:0;
+    padding: 0;
+    overflow-x: hidden;
+}
+*{
+    font-family: 'Quicksand', sans-serif;
+}
