@@ -32,14 +32,11 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule,
+    FormsModule
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatInputModule,
-        FormsModule,
-    ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
