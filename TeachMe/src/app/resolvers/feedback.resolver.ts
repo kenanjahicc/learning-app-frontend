@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
-import {
-  Router, Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot
-} from '@angular/router';
-import { Observable, of } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import {Observable} from 'rxjs';
+import {Feedback} from "../models/feedback.model";
+import {FeedbackService} from "../services/feedback.service";
 
 @Injectable()
-export class FeedbackResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+export class FeedbackResolver implements Resolve<Feedback> {
+
+  constructor(private feedbackService: FeedbackService) {
+  }
+
+  resolve(route: ActivatedRouteSnapshot,
+          state: RouterStateSnapshot): Observable<Feedback> {
+    const id = route.paramMap.get("feedbackId");
+    return this.feedbackService.GetFeedback(+id!);
   }
 }
