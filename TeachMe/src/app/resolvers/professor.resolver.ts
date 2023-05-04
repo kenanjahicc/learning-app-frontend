@@ -8,6 +8,7 @@ import {Professor} from "../models/professor.model";
 export class ProfessorResolver implements Resolve<Professor> {
   constructor(private professorService: ProfessorService) {
   }
+  
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Professor> {
     const professorId: string = route.paramMap.get("professorPageId")!;

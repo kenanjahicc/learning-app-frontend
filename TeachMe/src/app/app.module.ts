@@ -24,11 +24,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FeedbackResolver} from "./resolvers/feedback.resolver";
 import {ProfessorResolver} from "./resolvers/professor.resolver";
 import {FeedbackService} from "./services/feedback.service";
+import {MessageService} from "./services/message.service";
 import {ProfessorService} from "./services/professor.service";
 import {HttpClientModule} from '@angular/common/http';
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
-
+import {MessageBoxComponent} from "./message-box/message-box.component";
+import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,8 @@ import {ProfessorsComponent} from "./professor-profile-page/Professors/professor
     RegisterComponent,
     FeedbackComponent,
     ProfessorsComponent,
+    MessageBoxComponent,
+    MessagingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +64,7 @@ import {ProfessorsComponent} from "./professor-profile-page/Professors/professor
     ProfessorResolver,
     FeedbackService,
     ProfessorService,
+    MessageService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

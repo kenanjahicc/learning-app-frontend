@@ -13,6 +13,8 @@ import {
 import {ProfessorResolver} from "./resolvers/professor.resolver";
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
+import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
+import { MessageResolver } from "./resolvers/message.resolver";
 
 const routes: Routes = [
 
@@ -20,6 +22,11 @@ const routes: Routes = [
   {path: 'profile', component: ProfilePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {
+      path: 'messages',
+      component: MessagingPageComponent,
+      resolve: { messages: MessageResolver }
+    },
   {
     path: 'professorPage',
     component: ProfessorsComponent,
