@@ -7,14 +7,14 @@ import {FeedbackEditComponent} from './feedback/feedback-edit/feedback-edit.comp
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component'
 import {FeedbackResolver} from "./resolvers/feedback.resolver";
-import {
-  ProfessorProfilePageComponent
-} from "./professor-profile-page/professor-profile/professor-profile-page.component";
+import {ProfessorProfilePageComponent} from "./professor-profile-page/professor-profile/professor-profile-page.component";
 import {ProfessorResolver} from "./resolvers/professor.resolver";
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
 import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
 import { MessageResolver } from "./resolvers/message.resolver";
+import {NotificationComponent} from "./notification/notification.component"
+import {NotificationResolver} from "./resolvers/notification.resolver"
 
 const routes: Routes = [
 
@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfilePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'notifications', component:NotificationComponent, resolve:{notifications:NotificationResolver}},
   {
       path: 'messages',
       component: MessagingPageComponent,

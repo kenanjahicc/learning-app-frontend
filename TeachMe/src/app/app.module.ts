@@ -12,9 +12,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {StudentProfilePageComponent} from './student-profile-page/student-profile-page.component';
-import {
-  ProfessorProfilePageComponent
-} from './professor-profile-page/professor-profile/professor-profile-page.component';
+import {ProfessorProfilePageComponent} from './professor-profile-page/professor-profile/professor-profile-page.component';
 import {WrongRouteComponent} from './wrong-route/wrong-route.component';
 import {FeedbackEditComponent} from './feedback/feedback-edit/feedback-edit.component';
 import {MatInputModule} from '@angular/material/input';
@@ -31,6 +29,10 @@ import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
 import {MessageBoxComponent} from "./message-box/message-box.component";
 import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
+import {NotificationComponent} from "./notification/notification.component"
+import {NotificationService} from "./services/notification.service"
+import {NotificationResolver} from "./resolvers/notification.resolver"
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,7 @@ import {MessagingPageComponent} from "./messaging-page/messaging-page.component"
     ProfessorsComponent,
     MessageBoxComponent,
     MessagingPageComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,8 @@ import {MessagingPageComponent} from "./messaging-page/messaging-page.component"
     FeedbackService,
     ProfessorService,
     MessageService,
+    NotificationService,
+    NotificationResolver,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
