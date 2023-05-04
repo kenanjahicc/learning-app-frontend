@@ -22,10 +22,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FeedbackResolver} from "./resolvers/feedback.resolver";
 import {ProfessorResolver} from "./resolvers/professor.resolver";
 import {FeedbackService} from "./services/feedback.service";
+import {MessageService} from "./services/message.service";
 import {ProfessorService} from "./services/professor.service";
 import {HttpClientModule} from '@angular/common/http';
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
+import {MessageBoxComponent} from "./message-box/message-box.component";
+import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
 import {NotificationComponent} from "./notification/notification.component"
 import {NotificationService} from "./services/notification.service"
 import {NotificationResolver} from "./resolvers/notification.resolver"
@@ -45,6 +48,8 @@ import {NotificationResolver} from "./resolvers/notification.resolver"
     RegisterComponent,
     FeedbackComponent,
     ProfessorsComponent,
+    MessageBoxComponent,
+    MessagingPageComponent,
     NotificationComponent,
   ],
   imports: [
@@ -62,6 +67,7 @@ import {NotificationResolver} from "./resolvers/notification.resolver"
     ProfessorResolver,
     FeedbackService,
     ProfessorService,
+    MessageService,
     NotificationService,
     NotificationResolver,
   ],

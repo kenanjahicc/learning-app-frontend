@@ -11,6 +11,8 @@ import {ProfessorProfilePageComponent} from "./professor-profile-page/professor-
 import {ProfessorResolver} from "./resolvers/professor.resolver";
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
+import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
+import { MessageResolver } from "./resolvers/message.resolver";
 import {NotificationComponent} from "./notification/notification.component"
 import {NotificationResolver} from "./resolvers/notification.resolver"
 
@@ -21,6 +23,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'notifications', component:NotificationComponent, resolve:{notifications:NotificationResolver}},
+  {
+      path: 'messages',
+      component: MessagingPageComponent,
+      resolve: { messages: MessageResolver }
+    },
   {
     path: 'professorPage',
     component: ProfessorsComponent,
