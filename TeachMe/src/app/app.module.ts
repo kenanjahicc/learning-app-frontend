@@ -12,9 +12,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {StudentProfilePageComponent} from './student-profile-page/student-profile-page.component';
-import {
-  ProfessorProfilePageComponent
-} from './professor-profile-page/professor-profile/professor-profile-page.component';
+import {ProfessorProfilePageComponent} from './professor-profile-page/professor-profile/professor-profile-page.component';
 import {WrongRouteComponent} from './wrong-route/wrong-route.component';
 import {FeedbackEditComponent} from './feedback/feedback-edit/feedback-edit.component';
 import {MatInputModule} from '@angular/material/input';
@@ -28,6 +26,9 @@ import {ProfessorService} from "./services/professor.service";
 import {HttpClientModule} from '@angular/common/http';
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
+import {NotificationComponent} from "./notification/notification.component"
+import {NotificationService} from "./services/notification.service"
+import {NotificationResolver} from "./resolvers/notification.resolver"
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {ProfessorsComponent} from "./professor-profile-page/Professors/professor
     RegisterComponent,
     FeedbackComponent,
     ProfessorsComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,8 @@ import {ProfessorsComponent} from "./professor-profile-page/Professors/professor
     ProfessorResolver,
     FeedbackService,
     ProfessorService,
+    NotificationService,
+    NotificationResolver,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
