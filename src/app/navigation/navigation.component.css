@@ -42,7 +42,7 @@ div.log{
     margin-bottom: 5px;
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     padding: 10px 0;
     background-image: linear-gradient(to right, rgba(103, 242, 244, 0),rgba(103, 242, 244, 0),rgba(103, 242, 244, 0),rgba(103, 241, 244, 0.137))

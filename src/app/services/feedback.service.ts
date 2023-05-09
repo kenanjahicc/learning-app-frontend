@@ -5,9 +5,10 @@ import {Feedback} from "../models/feedback.model";
 
 @Injectable()
 export class FeedbackService {
-  private baseUrl = "http://localhost:8080/feedback";
+  private baseUrl;
 
   constructor(private http: HttpClient) {
+  this.baseUrl='https://teach-me.herokuapp.com/feedback';
   }
 
   public GetFeedback(id: number): Observable<Feedback> {

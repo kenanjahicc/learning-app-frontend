@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
-  private readonly Url = 'http://localhost:8080/messages';
+  private readonly Url = 'https://teach-me.herokuapp.com/messages';
 
   constructor(private http: HttpClient) { }
 

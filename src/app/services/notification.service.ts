@@ -5,7 +5,7 @@ import { Notification } from '../models/notification.model';
 
 @Injectable()
 export class NotificationService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://teach-me.herokuapp.com';
   constructor(private http: HttpClient) { }
   public getNotifications(): Observable<Notification[]> {
       return this.http.get<Notification[]>(`${this.baseUrl}/notification/all`);
