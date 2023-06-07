@@ -9,10 +9,10 @@ import {Professor} from "../../models/professor.model";
 
 @Component({
   selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.css']
+  templateUrl: './feedback-add.component.html',
+  styleUrls: ['./feedback-add.component.css']
 })
-export class FeedbackComponent implements OnInit, OnDestroy {
+export class FeedbackAddComponent implements OnInit, OnDestroy {
 
   public form!: FormGroup;
   public options = [

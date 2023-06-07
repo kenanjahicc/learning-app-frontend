@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Feedback} from "../models/feedback.model";
+import {FeedbackAddComponent} from "../feedback/feedback-add/feedback-add.component";
 
 @Injectable()
 export class FeedbackService {
@@ -14,7 +15,9 @@ export class FeedbackService {
   public GetFeedback(id: number): Observable<Feedback> {
     return this.http.get<Feedback>(`${this.baseUrl}/${id}`);
   }
-
+  public GetFeedbacks(professorId: number): Observable<Feedback>{
+    return this.http.get<Feedback>(`${this.baseUrl}/${professorId}/feedbacks`)
+  }
   public createFeedback(feedback: Feedback): Observable<Feedback> {
     return this.http.post<Feedback>(`${this.baseUrl}`, feedback);
   }
