@@ -6,8 +6,7 @@ import {BugReport} from "../models/bugReport.model";
 @Injectable()
 export class BugReportService {
 
-  // todo https://habit-reboot.herokuapp.com --->
-  private readonly baseUrl: string = 'http://localhost:8080/bug-report';
+  private readonly baseUrl: string = 'https://teach-me.herokuapp.com/bug-report';
 
   constructor(private http: HttpClient) {
   }
