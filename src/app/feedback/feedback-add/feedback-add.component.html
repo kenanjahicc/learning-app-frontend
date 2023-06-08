@@ -14,7 +14,7 @@
       <mat-label>Title</mat-label>
       <mat-select [formControlName]="'title'">
         <mat-option *ngFor="let color of options"
-                    [value]="color.color"
+                    [value]="color.label"
                     [ngStyle]="{'background-color':color.color}">
           {{color.label}}
         </mat-option>
@@ -23,7 +23,7 @@
 
     <mat-form-field appearance="outline" floatLabel="auto">
       <mat-label>Leave a feedback</mat-label>
-      <input matInput [formControlName]="'feedback'">
+      <input matInput [formControlName]="'content'">
     </mat-form-field>
 
     <button type="submit"

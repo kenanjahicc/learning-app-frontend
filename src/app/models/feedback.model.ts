@@ -1,6 +1,8 @@
 export interface Feedback {
-  id: number;
+  id?: number;
   title: string;
-  date: Date;
+  date?: Date;
   content: string;
+  professor: string;
+  professorId: number;
 }
