@@ -8,11 +8,15 @@ export class FeedbackService {
   private baseUrl;
 
   constructor(private http: HttpClient) {
-  this.baseUrl='https://teach-me.herokuapp.com/feedback';
+    this.baseUrl = 'https://teach-me.herokuapp.com/feedback';
   }
 
   public GetFeedback(id: number): Observable<Feedback> {
     return this.http.get<Feedback>(`${this.baseUrl}/${id}`);
+  }
+
+  public GetFeedbacks(professorId: number): Observable<Feedback> {
+    return this.http.get<Feedback>(`${this.baseUrl}/${professorId}/feedbacks`)
   }
 
   public createFeedback(feedback: Feedback): Observable<Feedback> {

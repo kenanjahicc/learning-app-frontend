@@ -6,9 +6,10 @@ import {Professor} from "../models/professor.model";
 
 @Injectable()
 export class ProfessorService {
-  private baseUrl: string = "https://teach-me.herokuapp.com";
+  private baseUrl;
 
   constructor(private http: HttpClient) {
+    this.baseUrl = 'https://teach-me.herokuapp.com/professor';
   }
 
   getProfessor(id: number): Observable<Professor> {

@@ -1,0 +1,49 @@
+<app-navigation></app-navigation>
+
+<h1>Professor {{professor.fullName}}</h1>
+
+<!--<div class="center-image">-->
+<!--  <a href="#">-->
+<!--  <img [src]="imagePath" alt="some">-->
+<!--  </a>-->
+<!--</div>-->
+
+<div class="profile-card">
+  <h2>About me</h2>
+  <div class="credentials">
+    <h3>Credentials</h3>
+    <p>Ph.D. in Computer Science</p>
+    <p>Master's Degree in Software Engineering</p>
+  </div>
+  <div class="experience">
+    <h3>Experience </h3>
+    <p>10 years of teaching experience</p>
+    <p>Published several research papers</p>
+  </div>
+  <div class="teaching-style">
+    <h3>Teaching Style</h3>
+    <p>Interactive and hands-on approach</p>
+    <p>Encourages student participation</p>
+  </div>
+  <div class="reviews">
+
+    <h3>Reviews</h3>
+    <div class="review">
+      <p>"Professor Smith is incredibly knowledgeable and explains complex concepts in a simple and understandable way. He truly cares about his students' success."</p>
+      <p>- Jane Doe</p>
+    </div>
+    <div class="review">
+      <p>"I highly recommend Professor Smith. His teaching style is engaging and he provides real-world examples that help solidify the concepts learned in class."</p>
+      <p>- John Doe</p>
+    </div>
+    <div class="review">
+      <h3>Overall Grade:</h3>
+      <p>{{professor.rating}}</p>
+    </div>
+  </div>
+  <a class="button" (click)="navigateToFeedback()">Provide Feedback</a>
+  <br>
+  <a class="button" (click)="navigateToFeedbacks()">See all Feedbacks</a>
+</div>
+
+<app-footer></app-footer>

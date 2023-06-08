@@ -7,14 +7,14 @@ import {FeedbackEditComponent} from './feedback/feedback-edit/feedback-edit.comp
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component'
 import {FeedbackResolver} from "./resolvers/feedback.resolver";
-import {ProfessorProfilePageComponent} from "./professor-profile-page/professor-profile/professor-profile-page.component";
+import {ProfessorProfileComponent} from "./professor-profile-page/professor-profile/professor-profile.component";
 import {ProfessorResolver} from "./resolvers/professor.resolver";
-import {FeedbackComponent} from "./feedback/feedback/feedback.component";
-import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
+import {FeedbackAddComponent} from "./feedback/feedback-add/feedback-add.component";
 import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
-import { MessageResolver } from "./resolvers/message.resolver";
+import {MessageResolver} from "./resolvers/message.resolver";
 import {NotificationComponent} from "./notification/notification.component"
 import {NotificationResolver} from "./resolvers/notification.resolver"
+import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 
 const routes: Routes = [
 
@@ -22,36 +22,47 @@ const routes: Routes = [
   {path: 'profile', component: ProfilePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'notifications', component:NotificationComponent, resolve:{notifications:NotificationResolver}},
+  {path: 'notifications', component: NotificationComponent, resolve: {notifications: NotificationResolver}},
   {
-      path: 'messages',
-      component: MessagingPageComponent,
-      resolve: { messages: MessageResolver }
+    path: 'messages',
+    component: MessagingPageComponent,
+    resolve: {messages: MessageResolver}
+  },
+  {
+    path: ':Professorid',
+    resolve: {
+      'professor': ProfessorResolver,
     },
-  {
-    path: 'professorPage',
-    component: ProfessorsComponent,
     children: [
       {
-        path: ':professorPageId',
-        component: ProfessorProfilePageComponent,
-        resolve: {
-          'professor': ProfessorResolver,
-        }
+        path: '',
+        component: ProfessorProfileComponent,
       },
       {
-        path: ':professorPageId/feedback',
+        path: 'feedback',
+        component: FeedbackAddComponent
+      },
+      {
+        path:'feedbacks',
         component: FeedbackComponent,
-      },
-      {
-        path: 'feedback/:feedbackId',
-        component: FeedbackEditComponent,
         resolve: {
-          'feedback': FeedbackResolver
+          'feedbacks' : FeedbackResolver,
         }
       }
     ]
   },
+  {
+    path: ':professorPageId/feedback',
+    component: FeedbackAddComponent,
+  },
+  {
+    path: 'feedback/:feedbackId',
+    component: FeedbackEditComponent,
+    resolve: {
+      'feedback': FeedbackResolver
+    }
+  },
+
 //Rute idu iznad ovog komentara
   {path: '**', pathMatch: 'full', component: WrongRouteComponent}
 ];

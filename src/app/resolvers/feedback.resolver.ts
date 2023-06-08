@@ -13,6 +13,6 @@ export class FeedbackResolver implements Resolve<Feedback> {
   resolve(route: ActivatedRouteSnapshot,
           state: RouterStateSnapshot): Observable<Feedback> {
     const id = route.paramMap.get("feedbackId");
-    return this.feedbackService.GetFeedback(+id!);
+    return this.feedbackService.GetFeedbacks(+id!);
   }
 }

@@ -9,10 +9,10 @@ import {Professor} from "../../models/professor.model";
 
 @Component({
   selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.css']
+  templateUrl: './feedback-add.component.html',
+  styleUrls: ['./feedback-add.component.css']
 })
-export class FeedbackComponent implements OnInit, OnDestroy {
+export class FeedbackAddComponent implements OnInit, OnDestroy {
 
   public form!: FormGroup;
   public options = [
@@ -48,19 +48,20 @@ export class FeedbackComponent implements OnInit, OnDestroy {
       this.professor = data['professor'];
     })
     this.form = this.formBuilder.group({
-      'id': [""],
       'title': ["", Validators.required],
-      'feedback': ["", Validators.required],
+      'content': ["", Validators.required],
+      'professorName': [this.professor.fullName, Validators.required],
+      'profId': [this.professor.id, Validators.required]
     });
   }
 
 
-  private navigateToFeedback() {
-    this.router.navigate([
-      "feedback",
-      this.feedback?.id
-    ]);
-  }
+  // private navigateToFeedbacks() {
+  //   this.router.navigate([
+  //     "feedback",
+  //     this.feedback?.id
+  //   ]);
+  // }
 
   ngOnDestroy(): void {
     this.unsubscribe!.unsubscribe()
@@ -70,7 +71,7 @@ export class FeedbackComponent implements OnInit, OnDestroy {
   }
   createFeedback(feedback: Feedback): void {
     this.feedbackService.createFeedback(feedback).subscribe(() => {
-      this.navigateToFeedback();
+      this.navigateToProfessor();
     });
   }
 

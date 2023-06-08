@@ -1,9 +1,7 @@
 export interface Professor {
   id: number;
   fullName: string;
-  imageUrl: string;
-  courses: string[];
-  cvUrl: string;
-  hobbies: string[];
+  course: string;
+  hobby: string;
   rating: number;
 }

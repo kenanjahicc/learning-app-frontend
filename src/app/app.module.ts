@@ -12,7 +12,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {StudentProfilePageComponent} from './student-profile-page/student-profile-page.component';
-import {ProfessorProfilePageComponent} from './professor-profile-page/professor-profile/professor-profile-page.component';
+import {ProfessorProfileComponent} from './professor-profile-page/professor-profile/professor-profile.component';
 import {WrongRouteComponent} from './wrong-route/wrong-route.component';
 import {FeedbackEditComponent} from './feedback/feedback-edit/feedback-edit.component';
 import {MatInputModule} from '@angular/material/input';
@@ -25,13 +25,15 @@ import {FeedbackService} from "./services/feedback.service";
 import {MessageService} from "./services/message.service";
 import {ProfessorService} from "./services/professor.service";
 import {HttpClientModule} from '@angular/common/http';
-import {FeedbackComponent} from "./feedback/feedback/feedback.component";
-import {ProfessorsComponent} from "./professor-profile-page/Professors/professors.component";
+import {FeedbackAddComponent} from "./feedback/feedback-add/feedback-add.component";
 import {MessageBoxComponent} from "./message-box/message-box.component";
 import {MessagingPageComponent} from "./messaging-page/messaging-page.component";
 import {NotificationComponent} from "./notification/notification.component"
 import {NotificationService} from "./services/notification.service"
 import {NotificationResolver} from "./resolvers/notification.resolver"
+import {AngularMaterialModule} from "./angular-material.module";
+import {BugReportService} from "./services/bugReport.service";
+import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 
 @NgModule({
   declarations: [
@@ -42,26 +44,27 @@ import {NotificationResolver} from "./resolvers/notification.resolver"
     FooterComponent,
     ProfilePageComponent,
     StudentProfilePageComponent,
-    ProfessorProfilePageComponent,
+    ProfessorProfileComponent,
     WrongRouteComponent,
     LoginComponent,
     RegisterComponent,
-    FeedbackComponent,
-    ProfessorsComponent,
+    FeedbackAddComponent,
     MessageBoxComponent,
     MessagingPageComponent,
     NotificationComponent,
+    FeedbackComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatInputModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatInputModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        AngularMaterialModule,
+    ],
   providers: [
     FeedbackResolver,
     ProfessorResolver,
@@ -70,6 +73,7 @@ import {NotificationResolver} from "./resolvers/notification.resolver"
     MessageService,
     NotificationService,
     NotificationResolver,
+    BugReportService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
