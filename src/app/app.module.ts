@@ -19,7 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FeedbackResolver} from "./resolvers/feedback.resolver";
+import {FeedbacksResolver} from "./resolvers/feedbacks.resolver";
 import {ProfessorResolver} from "./resolvers/professor.resolver";
 import {FeedbackService} from "./services/feedback.service";
 import {MessageService} from "./services/message.service";
@@ -34,6 +34,13 @@ import {NotificationResolver} from "./resolvers/notification.resolver"
 import {AngularMaterialModule} from "./angular-material.module";
 import {BugReportService} from "./services/bugReport.service";
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
+import {MatTableModule} from "@angular/material/table";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSelectModule} from "@angular/material/select";
+import {FeedbackResolver} from "./resolvers/feedback.resolver";
+import {YesNoDialogComponent} from "./feedback/feedback/yes-no-dialog/yes-no-dialog.component";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -53,20 +60,27 @@ import {FeedbackComponent} from "./feedback/feedback/feedback.component";
     MessagingPageComponent,
     NotificationComponent,
     FeedbackComponent,
+    YesNoDialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatInputModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        FlexLayoutModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        AngularMaterialModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatInputModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AngularMaterialModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatDialogModule,
+
+  ],
   providers: [
-    FeedbackResolver,
+    FeedbacksResolver,
     ProfessorResolver,
     FeedbackService,
     ProfessorService,
@@ -74,6 +88,7 @@ import {FeedbackComponent} from "./feedback/feedback/feedback.component";
     NotificationService,
     NotificationResolver,
     BugReportService,
+    FeedbackResolver,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
