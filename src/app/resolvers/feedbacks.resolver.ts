@@ -12,7 +12,7 @@ export class FeedbackResolver implements Resolve<Feedback> {
 
   resolve(route: ActivatedRouteSnapshot,
           state: RouterStateSnapshot): Observable<Feedback> {
-    const id = route.paramMap.get("feedbackId");
+    const id = route.paramMap.get("Professorid");
     return this.feedbackService.GetFeedbacks(+id!);
   }
 }
