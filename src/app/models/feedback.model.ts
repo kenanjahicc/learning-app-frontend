@@ -3,6 +3,5 @@ export interface Feedback {
   title: string;
   date?: Date;
   content: string;
-  professor: string;
   professorId: number;
 }

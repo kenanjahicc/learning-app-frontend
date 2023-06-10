@@ -4,4 +4,8 @@ export interface Professor {
   course: string;
   hobby: string;
   rating: number;
+  experience: string;
+  degree: string;
+  email: string;
+  teachingStyle: string
 }
