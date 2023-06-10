@@ -5,7 +5,7 @@ import {Feedback} from "../models/feedback.model";
 import {FeedbackService} from "../services/feedback.service";
 
 @Injectable()
-export class FeedbackResolver implements Resolve<Feedback> {
+export class FeedbacksResolver implements Resolve<Feedback> {
 
   constructor(private feedbackService: FeedbackService) {
   }
