@@ -6,7 +6,7 @@ import {WrongRouteComponent} from './wrong-route/wrong-route.component';
 import {FeedbackEditComponent} from './feedback/feedback-edit/feedback-edit.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component'
-import {FeedbackResolver} from "./resolvers/feedback.resolver";
+import {FeedbacksResolver} from "./resolvers/feedbacks.resolver";
 import {ProfessorProfileComponent} from "./professor-profile-page/professor-profile/professor-profile.component";
 import {ProfessorResolver} from "./resolvers/professor.resolver";
 import {FeedbackAddComponent} from "./feedback/feedback-add/feedback-add.component";
@@ -15,6 +15,7 @@ import {MessageResolver} from "./resolvers/message.resolver";
 import {NotificationComponent} from "./notification/notification.component"
 import {NotificationResolver} from "./resolvers/notification.resolver"
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
+import {FeedbackResolver} from "./resolvers/feedback.resolver";
 
 const routes: Routes = [
 
@@ -44,24 +45,26 @@ const routes: Routes = [
       },
       {
         path:'feedbacks',
-        component: FeedbackComponent,
         resolve: {
-          'feedbacks' : FeedbackResolver,
-        }
+          'feedbacks' : FeedbacksResolver,
+        },
+        children:[
+          {
+            path: '',
+            component: FeedbackComponent
+          },
+          {
+            path: ':feedbackId',
+            component: FeedbackEditComponent,
+            resolve: {
+              'feedback': FeedbackResolver,
+            }
+          }
+        ]
       }
     ]
   },
-  {
-    path: ':professorPageId/feedback',
-    component: FeedbackAddComponent,
-  },
-  {
-    path: 'feedback/:feedbackId',
-    component: FeedbackEditComponent,
-    resolve: {
-      'feedback': FeedbackResolver
-    }
-  },
+
 
 //Rute idu iznad ovog komentara
   {path: '**', pathMatch: 'full', component: WrongRouteComponent}

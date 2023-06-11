@@ -1,1 +1,35 @@
-<h1>Welcome to Feedbacks for this professor you have written</h1>
+<app-navigation></app-navigation>
+
+<button mat-stroked-button color="accent"
+        class="action-button"
+        (click)="navigateToProfessor()">Back to Professor
+</button>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="container">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <mat-select [formControlName]="'title'">
+        <mat-option *ngFor="let color of options"
+                    [value]="color.label"
+                    [ngStyle]="{'background-color':color.color}">
+          {{color.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" floatLabel="auto">
+      <mat-label>Leave a feedback</mat-label>
+      <input matInput [formControlName]="'content'">
+    </mat-form-field>
+
+    <button type="submit"
+            mat-flat-button
+            color="primary">Save
+    </button>
+  </div>
+</form>
+
+
+<app-footer></app-footer>

@@ -50,32 +50,26 @@ export class FeedbackAddComponent implements OnInit, OnDestroy {
     this.form = this.formBuilder.group({
       'title': ["", Validators.required],
       'content': ["", Validators.required],
-      'professorName': [this.professor.fullName, Validators.required],
-      'profId': [this.professor.id, Validators.required]
+      'professorId': [this.professor.id, Validators.required],
     });
   }
 
-
-  // private navigateToFeedbacks() {
-  //   this.router.navigate([
-  //     "feedback",
-  //     this.feedback?.id
-  //   ]);
-  // }
 
   ngOnDestroy(): void {
     this.unsubscribe!.unsubscribe()
   }
-  submit(): void{
+
+  submit(): void {
     this.createFeedback(this.form.value);
   }
+
   createFeedback(feedback: Feedback): void {
-    this.feedbackService.createFeedback(feedback).subscribe(() => {
+    this.feedbackService.createFeedback(feedback, this.professor.id).subscribe(() => {
       this.navigateToProfessor();
     });
   }
 
-  navigateToProfessor(){
+  navigateToProfessor() {
     this.router.navigate([
       this.professor.id
     ])

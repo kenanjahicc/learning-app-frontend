@@ -19,12 +19,12 @@ export class FeedbackService {
     return this.http.get<Feedback>(`${this.baseUrl}/${professorId}/feedbacks`)
   }
 
-  public createFeedback(feedback: Feedback): Observable<Feedback> {
-    return this.http.post<Feedback>(`${this.baseUrl}`, feedback);
+  public createFeedback(feedback: Feedback, profId: number): Observable<Feedback> {
+    return this.http.post<Feedback>(`${this.baseUrl}/${profId}/feedback`, feedback);
   }
 
-  public updateFeedback(feedback: Feedback): Observable<Feedback> {
-    return this.http.put<Feedback>(`${this.baseUrl}/${feedback.id}`, feedback);
+  public updateFeedback(feedback: Feedback, feedbackId: number): Observable<Feedback> {
+    return this.http.put<Feedback>(`${this.baseUrl}/${feedbackId}/edit`, feedback);
   }
 
   public deleteFeedback(id: number): Observable<null> {
