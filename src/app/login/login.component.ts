@@ -33,7 +33,7 @@ if (this.loginForm.valid){
 const username= this.loginForm.get('username')?.value;
 const password= this.loginForm.get('password')?.value;
 const payload = {username: username, password: password};
-this.HTTP.post<LoginResponse> ('http://localhost:8080/authenticate', payload)
+this.HTTP.post<LoginResponse> ('https://teach-me.herokuapp.com/authenticate', payload)
 .subscribe(
 (response)=> {
   localStorage.setItem('token',response.token);

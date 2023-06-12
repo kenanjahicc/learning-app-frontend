@@ -37,7 +37,7 @@ registerForm!: FormGroup;
         email: email
       };
 
-      this.http.post<string>('http://localhost:8080/register', payload)
+      this.http.post<string>('https://teach-me.herokuapp.com/register', payload)
         .subscribe(
           (response) => {
             console.log('Registration successful', response);
