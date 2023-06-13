@@ -33,9 +33,9 @@ export class MessagingPageComponent implements OnInit {
           (response) => {
             this.messages=response;
             for(let i=0;i<response.length;i++){
-              this.messages[i].sender=response[i].Sender;
-              this.messages[i].reciever=response[i].Receiver;
-              this.messages[i].content=response[i].Content;
+              this.messages[i].sender=response[i].sender;
+              this.messages[i].reciever=response[i].receiver;
+              this.messages[i].content=response[i].content;
               this.messages[i].time=response[i].time;
             }
           },
@@ -52,13 +52,14 @@ export class MessagingPageComponent implements OnInit {
       'Authorization': `Bearer ${token}`
     });
     const options = { headers: headers };
-      const payload = {
-        id: null,
-        sender: localStorage.getItem('username'),
-        Receiver: this.usertwo,
-        content: this.newMessage.content,
-        time: Date.now
-      };
+    const payload = {
+      id: null,
+      sender: localStorage.getItem('username'),
+      receiver: this.usertwo,
+      content: this.newMessage.content,
+      time: new Date().toISOString()
+    };
+    
     this.http.post<any>('https://teach-me.herokuapp.com/messages', payload , options)
       .subscribe(
           (response) => {
