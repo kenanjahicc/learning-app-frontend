@@ -18,7 +18,7 @@ export class MessagingPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private messageService: MessageService, private router: Router, private http: HttpClient) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
     const token=localStorage.getItem('token');
     const username=localStorage.getItem('username');
     const headers = new HttpHeaders({
@@ -31,7 +31,7 @@ export class MessagingPageComponent implements OnInit {
     this.http.get<any[]>('https://teach-me.herokuapp.com/messages/'+username+'/'+this.usertwo, options)
       .subscribe(
           (response) => {
-            console.log(response);
+            this.messages=response;
             for(let i=0;i<response.length;i++){
               this.messages[i].sender=response[i].sender;
               this.messages[i].reciever=response[i].receiver;
@@ -40,26 +40,26 @@ export class MessagingPageComponent implements OnInit {
             }
           },
           (error) => {
-            
+            console.error('Error while getting messages', error);
           }
         );
   }
 
-  sendMessage(): void {
+  sendMessage(): void{
     const token=localStorage.getItem('token');
     const username=localStorage.getItem('username');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
     const options = { headers: headers };
-     const payload = {
-  id: null,
-  sender: localStorage.getItem('username'),
-  receiver: this.usertwo,
-  content: this.newMessage.content,
-  time: new Date().toISOString()
-};
-
+    const payload = {
+      id: null,
+      sender: localStorage.getItem('username'),
+      receiver: this.usertwo,
+      content: this.newMessage.content,
+      time: new Date().toISOString()
+    };
+    
     this.http.post<any>('https://teach-me.herokuapp.com/messages', payload , options)
       .subscribe(
           (response) => {
