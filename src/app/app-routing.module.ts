@@ -28,7 +28,7 @@ const routes: Routes = [
     path: 'messages',
     children:[
       {
-        path:'messages/:usertwo',
+        path:':usertwo',
         component:MessagingPageComponent,
       }
     ]
