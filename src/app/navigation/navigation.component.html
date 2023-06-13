@@ -9,10 +9,13 @@
         <ul>
             <li><a >About us</a></li>
             <li><a >Support page</a></li>
-            <li><a [routerLink]="['/messages']"> Messages</a></li>
+            <li><a [routerLink]="['/search']"> Search</a></li>
         </ul>
     </div>
 </nav>
-<div class="log">
-    <span>You are logged in as : {{username}}</span>
+<div class="log" *ngIf="!username">
+    <span><a (click)="logout()" class="login">Log in</a></span>
+</div>
+<div class="log" *ngIf="username">
+    <span><a (click)="logout()" class="logout">Log out</a> {{username}}</span>
 </div>

@@ -16,10 +16,12 @@ import {NotificationComponent} from "./notification/notification.component"
 import {NotificationResolver} from "./resolvers/notification.resolver"
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {FeedbackResolver} from "./resolvers/feedback.resolver";
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
 
   {path: '', component: HomeComponent},
+  {path: 'search', component:SearchComponent},
   {path: 'profile', component: ProfilePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

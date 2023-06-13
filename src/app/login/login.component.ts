@@ -45,6 +45,8 @@ this.HTTP.post<LoginResponse> ('https://teach-me.herokuapp.com/authenticate', pa
 }); }}
 
 
-
+signUp(){
+  this.router.navigate(['/register']);
+}
 
 }

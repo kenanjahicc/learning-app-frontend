@@ -91,3 +91,9 @@ body {
 .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0.8375em 0;
 }
+.sign-up{
+  margin-top: 15px;
+  color:red;
+  font-weight: 700;
+  cursor: pointer;
+}

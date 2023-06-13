@@ -54,3 +54,15 @@ a{
     text-decoration: none;
     color:black;
 }
+.logout{
+    color:red;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.login{
+    color:rgb(0, 157, 255);
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 10px;
+}
