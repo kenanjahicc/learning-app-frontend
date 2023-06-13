@@ -52,14 +52,14 @@ export class MessagingPageComponent implements OnInit {
       'Authorization': `Bearer ${token}`
     });
     const options = { headers: headers };
-    const payload = {
-      id: null,
-      sender: localStorage.getItem('username'),
-      receiver: this.usertwo,
-      content: this.newMessage.content,
-      time: new Date().toISOString()
-    };
-    
+     const payload = {
+  id: null,
+  sender: localStorage.getItem('username'),
+  receiver: this.usertwo,
+  content: this.newMessage.content,
+  time: new Date().toISOString()
+};
+
     this.http.post<any>('https://teach-me.herokuapp.com/messages', payload , options)
       .subscribe(
           (response) => {
