@@ -30,7 +30,6 @@ const routes: Routes = [
       {
         path:'messages/:usertwo',
         component:MessagingPageComponent,
-        resolve: {messages: MessageResolver}
       }
     ]
   },
