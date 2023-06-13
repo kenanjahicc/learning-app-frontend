@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-messaging-page',
   templateUrl: './messaging-page.component.html',
@@ -52,7 +53,7 @@ export class MessagingPageComponent implements OnInit {
         content: this.newMessage.content,
         time: Date.now
       };
-    this.http.post<any>('https://teach-me.herokuapp.com/messages/', payload , options)
+    this.http.post<any>('https://teach-me.herokuapp.com/messages', payload , options)
       .subscribe(
           (response) => {
             console.log(response);
