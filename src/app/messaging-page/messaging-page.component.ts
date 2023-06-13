@@ -24,6 +24,9 @@ export class MessagingPageComponent implements OnInit {
       'Authorization': `Bearer ${token}`
     });
     const options = { headers: headers };
+    this.route.paramMap.subscribe((obs) => {
+      this.usertwo=(obs.get('usertwo'));
+      });
     this.http.get<any[]>('https://teach-me.herokuapp.com/messages/'+username+'/'+this.usertwo, options)
       .subscribe(
           (response) => {
@@ -42,9 +45,6 @@ export class MessagingPageComponent implements OnInit {
       'Authorization': `Bearer ${token}`
     });
     const options = { headers: headers };
-    this.route.paramMap.subscribe((obs) => {
-      this.usertwo=(obs.get('usertwo'));
-      });
       const payload = {
         id: null,
         sender: localStorage.getItem('username'),
