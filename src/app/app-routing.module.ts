@@ -26,8 +26,13 @@ const routes: Routes = [
   {path: 'notifications', component: NotificationComponent, resolve: {notifications: NotificationResolver}},
   {
     path: 'messages',
-    component: MessagingPageComponent,
-    resolve: {messages: MessageResolver}
+    children:[
+      {
+        path:'messages/:usertwo',
+        component:MessagingPageComponent,
+        resolve: {messages: MessageResolver}
+      }
+    ]
   },
   {
     path: ':Professorid',

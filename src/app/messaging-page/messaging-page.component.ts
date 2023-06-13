@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from '../services/message.service';
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-messaging-page',
@@ -10,19 +12,54 @@ import { Location } from '@angular/common';
 })
 export class MessagingPageComponent implements OnInit {
   messages: any[] = [];
-  newMessage: any = { content: '', sender: '', receiver: '',id:null,time:null };
+  newMessage: any = { content: '', sender: '', receiver: '', id:null, time:null };
+  usertwo:any;
 
-  constructor(private route: ActivatedRoute, private messageService: MessageService) { }
+  constructor(private route: ActivatedRoute, private messageService: MessageService, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.messages = this.route.snapshot.data['messages'];
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    this.http.get<any[]>('https://teach-me.herokuapp.com/messages/'+username+'/'+this.usertwo, options)
+      .subscribe(
+          (response) => {
+            this.messages=response;
+          },
+          (error) => {
+            console.error('Error while getting messages', error);
+          }
+        );
   }
 
   sendMessage(): void {
-    this.messageService.sendMessage(this.newMessage).subscribe(() => {
-      this.newMessage.content = '';
-     
-
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
     });
+    const options = { headers: headers };
+    this.route.paramMap.subscribe((obs) => {
+      this.usertwo=(obs.get('usertwo'));
+      });
+      const payload = {
+        id: null,
+        sender: localStorage.getItem('username'),
+        Receiver: this.usertwo,
+        content: this.newMessage.content,
+        time: Date.now
+      };
+    this.http.post<any>('https://teach-me.herokuapp.com/messages/', payload , options)
+      .subscribe(
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.error('Error while getting messages', error);
+          }
+        );
   }
 }
