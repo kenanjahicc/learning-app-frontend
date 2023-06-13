@@ -32,6 +32,12 @@ export class MessagingPageComponent implements OnInit {
       .subscribe(
           (response) => {
             this.messages=response;
+            for(let i=0;i<response.length;i++){
+              this.messages[i].sender=response[i].Sender;
+              this.messages[i].reciever=response[i].Receiver;
+              this.messages[i].content=response[i].Content;
+              this.messages[i].time=response[i].time;
+            }
           },
           (error) => {
             console.error('Error while getting messages', error);
