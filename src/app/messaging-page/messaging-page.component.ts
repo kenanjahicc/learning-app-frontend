@@ -31,16 +31,16 @@ export class MessagingPageComponent implements OnInit {
     this.http.get<any[]>('https://teach-me.herokuapp.com/messages/'+username+'/'+this.usertwo, options)
       .subscribe(
           (response) => {
-            this.messages=response;
+            console.log(response);
             for(let i=0;i<response.length;i++){
-              this.messages[i].sender=response[i].Sender;
-              this.messages[i].reciever=response[i].Receiver;
-              this.messages[i].content=response[i].Content;
+              this.messages[i].sender=response[i].sender;
+              this.messages[i].reciever=response[i].receiver;
+              this.messages[i].content=response[i].content;
               this.messages[i].time=response[i].time;
             }
           },
           (error) => {
-            console.error('Error while getting messages', error);
+            
           }
         );
   }
