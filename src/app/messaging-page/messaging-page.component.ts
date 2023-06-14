@@ -15,12 +15,14 @@ export class MessagingPageComponent implements OnInit {
   messages: any[] = [];
   newMessage: any = { content: '', sender: '', receiver: '', id:null, time:null };
   usertwo:any;
+  username:any;
 
   constructor(private route: ActivatedRoute, private messageService: MessageService, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void{
     const token=localStorage.getItem('token');
     const username=localStorage.getItem('username');
+    this.username=username;
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
