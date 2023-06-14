@@ -15,7 +15,7 @@
         <h2>{{ professor.fullName }}</h2>
         <p>Degree: {{ professor.degree }}</p>
         <p>Email: {{ professor.email }}</p>
-        <p>Course: {{ professor.course }}</p>
+        <p>Rating:</p>
         <div class="rating">
           <div class="stars" [style.width.%]="(professor.rating / 10) * 100"></div>
           <span class="rating-value">{{ professor.rating.toFixed(2) }}</span>
