@@ -10,19 +10,30 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="registerForm.get('email')?.errors?.required">Email is required</mat-error>
+          <mat-error *ngIf="registerForm.get('email')?.errors?.email">Invalid email format</mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" formControlName="password"> 
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-error *ngIf="registerForm.get('password')?.errors?.required">Password is required</mat-error>
+          <mat-error *ngIf="registerForm.get('password')?.errors?.minlength">Weak password</mat-error>
+          <mat-error *ngIf="registerForm.get('password')?.errors?.pattern">Weak password</mat-error>
+          <mat-error *ngIf="registerForm.get('password')?.errors?.passwordContainsUsernameOrEmail">Contain the username or email</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+          <mat-error *ngIf="registerForm.get('confirmPassword')?.errors?.required">Confirm Password is required</mat-error>
+          <mat-error *ngIf="registerForm.hasError('passwordsNotMatch')">Passwords do not match</mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Choose a role...</mat-label>
-          <mat-select>
-            <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
-            </mat-option>
+          <mat-select formControlName="role">
+            <mat-option *ngFor="let role of Roles" [value]="role">{{role}}</mat-option>
           </mat-select>
+          <mat-error *ngIf="registerForm.get('role')?.errors?.required">Role is required</mat-error>
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block" type="submit" >Register</button>
+      <button mat-stroked-button color="accent" class="btn-block" type="submit">Register</button>
     </form>
   </mat-card>
 </div>
