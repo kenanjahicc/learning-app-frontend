@@ -42,6 +42,7 @@ import {FeedbackResolver} from "./resolvers/feedback.resolver";
 import {YesNoDialogComponent} from "./feedback/feedback/yes-no-dialog/yes-no-dialog.component";
 import {MatDialogModule} from "@angular/material/dialog";
 import { SearchComponent } from './search/search.component';
+import { SupportPageComponent } from "./support-page/support-page.component";
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SearchComponent } from './search/search.component';
     NotificationComponent,
     FeedbackComponent,
     YesNoDialogComponent,
-    SearchComponent
+    SearchComponent,
+    SupportPageComponent,
   ],
   imports: [
     BrowserModule,
