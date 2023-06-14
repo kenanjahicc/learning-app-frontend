@@ -1,8 +1,8 @@
+<app-navigation></app-navigation>
+<h1 style="text-align: center;">{{usertwo}}</h1>
 
-<h1>Messages</h1>
-
-<div class="message-container">
-  <div *ngFor="let message of messages" class="message">
+<div class="message-container" id="messageContainer">
+  <div *ngFor="let message of messages" class="message" [ngClass]="{'sent': message.sender == username}">
     <div class="content">
       {{ message.content }}</div>
   </div>
@@ -16,14 +16,15 @@
 <!--  </div>-->
 <!--</div>-->
 
-<h2>Send a Message</h2>
-
 <form (ngSubmit)="sendMessage()">
   <div>
-    <label for="content">Message:</label>
-    <textarea [(ngModel)]="newMessage.content" name="content" id="content"></textarea>
+    <textarea [(ngModel)]="newMessage.content" name="content" id="content" placeholder="Message ..." rows="1" cols="70" style="overflow:hidden;resize:none;"></textarea>
   </div>
-  <button type="submit">Send</button>
+  <button type="submit" style="width:15%">Send</button>
 </form>
+<app-footer></app-footer>
+
+
+
 
 

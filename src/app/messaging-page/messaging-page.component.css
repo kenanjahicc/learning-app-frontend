@@ -1,7 +1,17 @@
+
 .message-container {
   display: flex;
   flex-direction: column;
   width: 50%;
+  align-items: start;
+  margin-left:auto;
+  margin-right: auto; 
+  overflow-y: scroll;
+  max-height: 400px;
+  padding:10px;
+  border-radius: 8px;
+  border:rgba(187, 234, 250, 0.737) solid 2px ;
+  margin-bottom: 5px;
 }
 
 .message {
@@ -20,3 +30,40 @@
 .content {
   margin: 0;
 }
+.sent{
+  background-color: rgba(187, 234, 250, 0.429);
+  align-self: end;
+}
+form{
+  width:50%;
+  margin-left:auto;
+  margin-right:auto;
+  display: flex;
+  justify-content: space-between;
+  padding:10px;
+  border-radius: 8px;
+  border:rgba(187, 234, 250, 0.737) solid 2px ;
+}
+textarea{
+  font-size:15px;
+  padding:10px;
+  border-radius: 8px;
+  border:rgba(187, 234, 250, 0.737) solid 2px ;
+  margin-bottom: 5px;
+}
+button{
+  font-size:15px;
+  padding:10px;
+  border-radius: 8px;
+  border:rgba(187, 234, 250, 0.737) solid 2px ;
+  margin-bottom: 5px;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+button:hover{
+  background-color: rgba(173, 216, 230, 0.679);
+  transform: scale(110%);
+}
+
