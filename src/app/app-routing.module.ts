@@ -17,10 +17,12 @@ import {NotificationResolver} from "./resolvers/notification.resolver"
 import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {FeedbackResolver} from "./resolvers/feedback.resolver";
 import { SearchComponent } from './search/search.component';
+import {SupportPageComponent} from "./support-page/support-page.component";
 
 const routes: Routes = [
 
   {path: '', component: HomeComponent},
+  {path: 'support-page', component: SupportPageComponent},
   {path: 'search', component:SearchComponent},
   {path: 'profile', component: ProfilePageComponent},
   {path: 'login', component: LoginComponent},
