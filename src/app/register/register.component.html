@@ -17,7 +17,6 @@
           <input matInput type="password" placeholder="Password" formControlName="password">
           <mat-error *ngIf="registerForm.get('password')?.errors?.required">Password is required</mat-error>
           <mat-error *ngIf="registerForm.get('password')?.errors?.minlength">Weak password</mat-error>
-          <mat-error *ngIf="registerForm.get('password')?.errors?.pattern">Weak password</mat-error>
           <mat-error *ngIf="registerForm.get('password')?.errors?.passwordContainsUsernameOrEmail">Contain the username or email</mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
