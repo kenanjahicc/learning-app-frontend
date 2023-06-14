@@ -1,7 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
+function passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  const password = control.get('password');
+  const confirmPassword = control.get('confirmPassword');
+
+  if (password && confirmPassword && password.value !== confirmPassword.value) {
+    return { 'passwordsNotMatch': true };
+  }
+
+  return null;
+}
 
 @Component({
   selector: 'app-register',
@@ -9,22 +20,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  Roles =  ["Professor", "Student"];
-registerForm!: FormGroup;
+  Roles = ["Professor", "Student"];
+  registerForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
-      role: ['', Validators.required],
-      email: ['', Validators.required]
-    });
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
+      confirmPassword: ['', Validators.required],
+      role: ['', Validators.required]
+    }, { validators: passwordValidator });
   }
 
   signup() {
-    if (1) {
+    if (this.registerForm.valid) {
       const username = this.registerForm.get('username')?.value;
       const password = this.registerForm.get('password')?.value;
       const role = this.registerForm.get('role')?.value;
@@ -50,3 +62,5 @@ registerForm!: FormGroup;
     }
   }
 }
+
+
