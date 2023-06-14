@@ -48,5 +48,7 @@ export class SearchComponent {
     navigateToMessaging(username: string) {
       this.router.navigate(['/messages', username]);
     }
-
+    viewProfessor(professorId: string) {
+      this.router.navigate(['/', professorId]);
+    }
 }

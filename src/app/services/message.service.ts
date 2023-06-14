@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,10 +11,22 @@ export class MessageService {
   constructor(private http: HttpClient) { }
 
   getMessages(): Observable<any[]> {
-    return this.http.get<any[]>(this.Url);
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.get<any[]>(this.Url, options);
   }
 
   sendMessage(message: any): Observable<any> {
-    return this.http.post<any>(this.Url, message);
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.post<any>(this.Url, message, options);
   }
 }

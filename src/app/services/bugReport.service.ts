@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {BugReport} from "../models/bugReport.model";
 
@@ -12,6 +12,12 @@ export class BugReportService {
   }
 
   getBugReport(id: number): Observable<BugReport> {
-    return this.http.get<BugReport>(`${this.baseUrl}/${id}`);
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.get<BugReport>(`${this.baseUrl}/${id}`, options);
   }
 }

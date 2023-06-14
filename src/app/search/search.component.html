@@ -17,10 +17,11 @@
         <p>Email: {{ professor.email }}</p>
         <p>Course: {{ professor.course }}</p>
         <div class="rating">
-          <div class="stars" [style.width.%]="(professor.rating / 5) * 100"></div>
+          <div class="stars" [style.width.%]="(professor.rating / 10) * 100"></div>
           <span class="rating-value">{{ professor.rating.toFixed(2) }}</span>
         </div>
         <button class="message-button" (click)="navigateToMessaging(professor.fullName)">Message</button>
+        <button class="message-button" (click)="viewProfessor(professor.id)">View</button>
       </div>
     </div>
   </div>

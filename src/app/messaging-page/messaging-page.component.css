@@ -45,6 +45,7 @@ form{
   border:rgba(187, 234, 250, 0.737) solid 2px ;
 }
 textarea{
+  margin-top: 5px;
   font-size:15px;
   padding:10px;
   border-radius: 8px;

@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Feedback} from "../models/feedback.model";
@@ -12,23 +12,52 @@ export class FeedbackService {
   }
 
   public GetFeedback(id: number): Observable<Feedback> {
-    return this.http.get<Feedback>(`${this.baseUrl}/${id}`);
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.get<Feedback>(`${this.baseUrl}/${id}`, options);
   }
 
   public GetFeedbacks(professorId: number): Observable<Feedback> {
-    return this.http.get<Feedback>(`${this.baseUrl}/${professorId}/feedbacks`)
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.get<Feedback>(`${this.baseUrl}/${professorId}/feedbacks`, options)
   }
 
   public createFeedback(feedback: Feedback, profId: number): Observable<Feedback> {
-    return this.http.post<Feedback>(`${this.baseUrl}/${profId}/feedback`, feedback);
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.post<Feedback>(`${this.baseUrl}/${profId}/feedback`, feedback, options);
   }
 
   public updateFeedback(feedback: Feedback, feedbackId: number): Observable<Feedback> {
-    return this.http.put<Feedback>(`${this.baseUrl}/${feedbackId}/edit`, feedback);
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.put<Feedback>(`${this.baseUrl}/${feedbackId}/edit`, feedback, options);
   }
 
   public deleteFeedback(id: number): Observable<null> {
-    this.http.delete<Feedback>(`${this.baseUrl}/${id}`);
-    return of(null);
+    const token=localStorage.getItem('token');
+    const username=localStorage.getItem('username');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.delete<null>(`${this.baseUrl}/${id}`, options);
   }
 }
