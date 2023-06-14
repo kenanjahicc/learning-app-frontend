@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/internal/Observable';
 import {Professor} from "../models/professor.model";
@@ -13,7 +13,12 @@ export class ProfessorService {
   }
 
   getProfessor(id: number): Observable<Professor> {
-    return this.http.get<Professor>(`${this.baseUrl}/${id}`);
+    const token=localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers };
+    return this.http.get<Professor>(`${this.baseUrl}/${id}`, options);
   }
 
 }
