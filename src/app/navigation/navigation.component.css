@@ -1,0 +1,68 @@
+nav{
+    height: min-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(103, 241, 244, 0.137);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+nav img{
+    height: 75px;
+}
+ul{
+    display: flex;
+    gap:170px;
+    list-style-type: none;
+}
+ul a{
+    text-decoration: none;
+    color:black;
+    padding: 15px 20px;
+    border-radius: 2px;
+    transition: all .4s ease-in-out;
+}
+ul a:hover{
+    background-color: rgba(39, 46, 108, 0.385);
+    color:white;
+}
+.noflex{
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+div.log{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0;
+    background-image: linear-gradient(to right, rgba(103, 242, 244, 0),rgba(103, 242, 244, 0),rgba(103, 242, 244, 0),rgba(103, 241, 244, 0.137))
+}
+div.log span{
+    padding: 0 20px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.logout{
+    color:red;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.login{
+    color:rgb(0, 157, 255);
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 10px;
+}

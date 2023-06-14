@@ -1,0 +1,29 @@
+
+<h1>Messages</h1>
+
+<div class="message-container">
+  <div *ngFor="let message of messages" class="message">
+    <div class="content">
+      {{ message.content }}</div>
+  </div>
+</div>
+
+<!--<div class="message-container">-->
+<!--  <div class="message">-->
+<!--    <p class="sender">{{ message.sender }}</p>-->
+<!--    <p class="content">{{message.content}}</p>-->
+<!--    <p class="content">{{message.receiver}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<h2>Send a Message</h2>
+
+<form (ngSubmit)="sendMessage()">
+  <div>
+    <label for="content">Message:</label>
+    <textarea [(ngModel)]="newMessage.content" name="content" id="content"></textarea>
+  </div>
+  <button type="submit">Send</button>
+</form>
+
+

@@ -1,0 +1,43 @@
+<app-navigation></app-navigation>
+
+<h1>Professor {{professor.fullName}}</h1>
+
+<!--<div class="center-image">-->
+<!--  <a href="#">-->
+<!--  <img [src]="imagePath" alt="some">-->
+<!--  </a>-->
+<!--</div>-->
+
+<div class="profile-card">
+  <h2>About me</h2>
+  <div class="credentials">
+    <h3>Credentials</h3>
+    <p>Teaching course: {{ professor.course }}</p>
+    <p>Degree: {{ professor.degree }}</p>
+    <p>Contact email: {{ professor.email }}  </p>
+  </div>
+  <div class="experience">
+    <h3>Experience</h3>
+    <p>Professor {{ professor.fullName }} worked and gained experience in these workplaces:  </p>
+    <p>Worked at: {{ professor.experience }} </p>
+  </div>
+  <div class="teaching-style">
+    <h3>Major Hobby</h3>
+    <p>Professor {{ professor.fullName }} likes this hobby the most: {{ professor.hobby }} </p>
+    <br>
+    <p>Teaching style: </p>
+    <p>{{ professor.teachingStyle }}</p>
+  </div>
+  <div class="reviews">
+    <div class="review">
+      <h3>Overall Grade:</h3>
+      <p>{{professor.rating}}</p>
+    </div>
+  </div>
+  <h3>View professor {{ professor.fullName }} reviews: </h3>
+  <a class="button" (click)="navigateToFeedback()">Provide Feedback</a>
+  <br>
+  <a class="button" (click)="navigateToFeedbacks()">See all Feedbacks</a>
+</div>
+
+<app-footer></app-footer>

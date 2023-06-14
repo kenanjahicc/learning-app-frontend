@@ -1,0 +1,20 @@
+<nav>
+    <a [routerLink]="['/']">
+    <div class="noflex">
+        <img src="assets/images/logo.png"/>
+        <h1>TeachMe</h1>
+    </div>
+</a>
+    <div>
+        <ul>
+            <li><a [routerLink]="['/support-page']">Support page</a></li>
+            <li><a [routerLink]="['/search']"> Search</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="log" *ngIf="!username">
+    <span><a (click)="logout()" class="login">Log in</a></span>
+</div>
+<div class="log" *ngIf="username">
+    <span><a (click)="logout()" class="logout">Log out</a> {{username}}</span>
+</div>
