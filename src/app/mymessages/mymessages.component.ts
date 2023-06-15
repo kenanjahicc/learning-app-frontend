@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./mymessages.component.css']
 })
 export class MyessagesComponent implements OnInit {
-  messagedPeople: any[] = ['John', 'Alice', 'Bob', 'Emma'];
+  messagedPeople?: any[];
 
   ///mymessages/{username}
 
