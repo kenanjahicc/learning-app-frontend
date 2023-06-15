@@ -26,6 +26,8 @@ export class SearchComponent implements OnInit{
   
     constructor(private http: HttpClient, private router: Router) {}
     ngOnInit(): void {
+
+      
       if(localStorage.getItem('token')!='')
       this.router.navigate(['/login']);
     }
