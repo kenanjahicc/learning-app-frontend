@@ -25,7 +25,6 @@ export class SearchComponent {
     searchResults: professorInterface[]= []; 
   
     constructor(private http: HttpClient, private router: Router) {}
-    
   
     search() {
       const token=localStorage.getItem('token');
