@@ -1,0 +1,56 @@
+/* For the message-container */
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 50%;
+    overflow-y: scroll;
+    max-height: 400px;
+    padding: 10px;
+    border-radius: 8px;
+    border: rgba(187, 234, 250, 0.737) solid 2px;
+    background-color: #f9f9f9;
+  }
+  
+  /* For the People I Have Messaged section */
+  h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* For the Message button icon */
+  mat-icon {
+    font-size: 18px;
+  }
+  
+  /* For the navigation and footer components */
+  app-navigation,
+  app-footer {
+    display: block;
+    margin-top: 20px;
+  }
+  
+  /* Add additional styling as needed */
+  
