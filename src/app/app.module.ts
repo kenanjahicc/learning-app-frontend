@@ -44,6 +44,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { SearchComponent } from './search/search.component';
 import { SupportPageComponent } from "./support-page/support-page.component";
 
+import { MyessagesComponent } from './mymessages/mymessages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +67,7 @@ import { SupportPageComponent } from "./support-page/support-page.component";
     YesNoDialogComponent,
     SearchComponent,
     SupportPageComponent,
+    MyessagesComponent,
   ],
   imports: [
     BrowserModule,

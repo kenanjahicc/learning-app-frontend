@@ -18,10 +18,13 @@ import {FeedbackComponent} from "./feedback/feedback/feedback.component";
 import {FeedbackResolver} from "./resolvers/feedback.resolver";
 import { SearchComponent } from './search/search.component';
 import {SupportPageComponent} from "./support-page/support-page.component";
+import { MyessagesComponent } from './mymessages/mymessages.component';
+
 
 const routes: Routes = [
 
   {path: '', component: HomeComponent},
+  {path: 'my-messages', component: MyessagesComponent},
   {path: 'support-page', component: SupportPageComponent},
   {path: 'search', component:SearchComponent},
   {path: 'profile', component: ProfilePageComponent},
