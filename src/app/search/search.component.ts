@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -18,19 +18,13 @@ interface professorInterface{
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit{
+export class SearchComponent {
 
   
     searchQuery: string = '';
     searchResults: professorInterface[]= []; 
   
     constructor(private http: HttpClient, private router: Router) {}
-    ngOnInit(): void {
-
-      
-      if(localStorage.getItem('token')!='')
-      this.router.navigate(['/login']);
-    }
   
     search() {
       const token=localStorage.getItem('token');
