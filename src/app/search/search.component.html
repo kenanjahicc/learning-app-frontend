@@ -1,10 +1,10 @@
 <app-navigation></app-navigation>
 
 <div class="search-container">
-  <h1>Search</h1>
+  <h1>Search Professors</h1>
 
   <div class="search-form">
-    <input type="text" placeholder="Search for professors and students" [(ngModel)]="searchQuery" (keyup)="search()">
+    <input type="text" placeholder="Search by professor name or expertise" [(ngModel)]="searchQuery" (keyup)="search()">
     <button (click)="search()">Search</button>
   </div>
 
@@ -14,7 +14,9 @@
     </div>
     <div *ngFor="let professor of searchResults">
       <h2>{{ professor.fullName }}</h2>
-      <p *ngIf="professor.degree">Degree: {{ professor.degree }}</p>
+      <p>
+        {{ professor.degree ? 'Degree: ' + professor.degree : 'Student' }}
+      </p>
       <p *ngIf="professor.email">Email: {{ professor.email }}</p>
       <p *ngIf="professor.rating !== null">Rating:</p>
       <div class="rating" *ngIf="professor.rating !== null">
